@@ -58,22 +58,20 @@ int main(int argc, char** argv){
     exit(1);
   }
   struct stat info;
-  const char* function = "lstat";
   const char* fname = argv[1];
 
   if (lstat(fname, &info) != 0){
     perror("lstat() error");
     return -1;
   } else{
-    showInfo(&info, function, fname);
+    showInfo(&info, "lstat", fname);
     if (S_ISLNK(info.st_mode) &&
         !(S_ISEXTL(info.st_mode,info.st_genvalue))){
-      function = "stat";
       if (stat(fname, &info) != 0){
         perror("stat() error");
         return -1;
       } else{
-        showInfo(&info, function, fname);
+        showInfo(&info, "stat", fname);
       }
     }
   }
