@@ -15,8 +15,8 @@ CFLAGS = \
 default: stat
 
 stat: stat.o
-        ${CC} ${CFLAGS} -o $@ $<
+	${CC} ${CFLAGS} -o $@ $<
 
 clean:
-        rm -f *.o *.dbg *.lst stat
-        
+	rm -f *.o *.dbg *.lst stat
+      

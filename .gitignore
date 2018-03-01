@@ -1,8 +1,14 @@
+# Project-specific
+stat
+
 # Object files
 *.o
 *.ko
 *.obj
 *.elf
+
+# Listings
+*.lst
 
 # Precompiled Headers
 *.gch
