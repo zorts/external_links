@@ -1,5 +1,6 @@
 # Project-specific
 stat
+readlink
 
 # Object files
 *.o
@@ -36,4 +37,5 @@ stat
 
 # Debug files
 *.dSYM/
+*.dbg
 *.su
