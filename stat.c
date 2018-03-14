@@ -7,6 +7,8 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdint.h>
+#include <inttypes.h>
 
 #define CHECK_FOR(CONDITION,WHAT)               \
   if ((CONDITION)){                             \
@@ -47,7 +49,12 @@ void showInfo(struct stat* info, const char* function, const char* fname)
   printf(" links: %d\n", info->st_nlink);
   printf(" uid: %d\n", (int) info->st_uid);
   printf(" gid: %d\n", (int) info->st_gid);
-  printf("created: %s", ctime(&info->st_createtime));
+  printf(" created: %s", ctime(&info->st_createtime));
+  printf(" blksize: %" PRIu64 "\n", (uint64_t)info->st_blksize);
+  printf(" blocks: %" PRIu64 "\n", (uint64_t)info->st_blocks);
+  printf(" stated size  : %" PRIu64 "\n", (uint64_t)info->st_size);
+  printf(" computed size: %" PRIu64 "\n", 
+         ((uint64_t)info->st_blocks)*((uint64_t)info->st_blksize));
   fflush(stdout);
 }
 
