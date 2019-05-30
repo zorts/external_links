@@ -55,6 +55,8 @@ void showInfo(struct stat* info, const char* function, const char* fname)
   printf(" stated size  : %" PRIu64 "\n", (uint64_t)info->st_size);
   printf(" computed size: %" PRIu64 "\n", 
          ((uint64_t)info->st_blocks)*((uint64_t)info->st_blksize));
+  printf(" text flag: %s\n", (info->st_tag.ft_txtflag ? "ON" : "OFF"));
+  printf(" CCSID: %04X (%u)\n", (unsigned) info->st_tag.ft_ccsid, (unsigned) info->st_tag.ft_ccsid);
   fflush(stdout);
 }
 

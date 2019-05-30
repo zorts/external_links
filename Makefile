@@ -12,6 +12,7 @@ CFLAGS = \
  -qasm \
  -Wa,goff \
  -D__MV17195__ -D_XOPEN_SOURCE=600 \
+ -D_OPEN_SYS_FILE_EXT \
  -I. \
  ${SYS_INCLUDE} \
  ${EMPTY}
